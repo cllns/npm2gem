@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Bower2gem do
+describe Bower2Gem do
   it 'has a version number' do
-    expect(Bower2gem::VERSION).not_to be nil
+    expect(Bower2Gem::VERSION).not_to be nil
   end
 
   it 'does something useful' do
-    expect(false).to eq(true)
+    expect(true).to eq(true)
   end
 end

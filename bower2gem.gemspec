@@ -5,7 +5,7 @@ require 'bower2gem/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "bower2gem"
-  spec.version       = Bower2gem::VERSION
+  spec.version       = Bower2Gem::VERSION
   spec.authors       = ["Sean Collins"]
   spec.email         = ["sean@cllns.com"]
 
