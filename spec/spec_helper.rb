@@ -1,8 +1,6 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "bower2gem"
 
-require "fileutils"
-
 spec_tmp_dir = "spec/tmp"
 base_directory = Dir.pwd
 

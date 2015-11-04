@@ -12,14 +12,14 @@ module Bower2Gem
       JSON.parse(bower_json_file)
     end
 
+    # We put into an array then flatten it, to ensure we return a
+    # (single-dimensional) array
     def main_file_names
-      file_names = parse_bower_json["main"]
+      [ parse_bower_json["main"] ].flatten
+    end
 
-      if file_names.is_a?(String)
-        return [ file_names ]
-      end
-
-      file_names
+    def package_path
+      @bower_install.package_path
     end
 
     private
