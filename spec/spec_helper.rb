@@ -11,7 +11,6 @@ RSpec.configure do |config|
     Dir.mkdir("tmp")
     Dir.chdir("tmp")
     Dir.mkdir("bower_components")
-    FileUtils.cp("../../bower.json", ".")
     FileUtils.cp("../../.bower2gem.yml", ".")
     FileUtils.mkdir_p("vendor/assets/javascripts")
     FileUtils.mkdir_p("vendor/assets/stylesheets")

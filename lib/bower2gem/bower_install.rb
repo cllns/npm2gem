@@ -1,7 +1,7 @@
 module Bower2Gem
   class BowerInstall
     def initialize(package_name)
-      unless system("bower install")
+      unless system("bower install #{package_name}")
         raise Bower2Gem::Exception, "Couldn't install..."
       end
 
