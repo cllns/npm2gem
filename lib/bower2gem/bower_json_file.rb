@@ -1,23 +1,30 @@
+require "bower2gem/bower_install"
+
 require "json"
 
 module Bower2Gem
   class BowerJsonFile
-    def initialize(bower_install)
-      @bower_install = bower_install
-    end
-
-    def self.parse(bower_install)
-      self.new(bower_install).parse_bower_json
+    def initialize(package_name)
+      @bower_install = BowerInstall.new(package_name)
     end
 
     def parse_bower_json
       JSON.parse(bower_json_file)
     end
 
+    def main_file_names
+      file_names = parse_bower_json["main"]
+
+      if file_names.is_a?(String)
+        return [ file_names ]
+      end
+
+      file_names
+    end
+
     private
 
     def bower_json_file
-      puts bower_json_path
       File.read(bower_json_path)
     end
 
