@@ -20,3 +20,7 @@
 - [ ] Remove bower_components directory when done
 - [ ] When copying and files exist, confirm with user (possibly read version from
   file itself)
+- [ ] Add Support for:
+  - [ ] Fonts
+  - [ ] Sass (and Less?)
+  - [ ] CoffeeScript?
