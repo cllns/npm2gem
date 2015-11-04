@@ -13,6 +13,8 @@ module Bower2Gem
       @file_copier = FileCopier.new(@bower_json_file.package_path, "vendor/assets")
 
       @file_copier.copy(@config.file_names)
+
+      FileUtils.rm_rf("bower_components")
     end
   end
 end

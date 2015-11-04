@@ -17,7 +17,7 @@
 - [x] Build 'dummy' gem (adapt the pattern for rails engines)
 - [ ] Make sure vendor/assets/... exist
 - [ ] Bump version on Gemfile (based on bower's version)
-- [ ] Remove bower_components directory when done
+- [x] Remove bower_components directory when done
 - [ ] When copying and files exist, confirm with user (possibly read version from
   file itself)
 - [ ] Add Support for:
