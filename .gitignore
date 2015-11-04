@@ -11,3 +11,4 @@
 *.js
 *.css
 /vendor/
+/*.gem
