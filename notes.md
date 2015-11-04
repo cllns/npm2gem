@@ -14,7 +14,7 @@
    for updates (likely manually hardcoded at first)
 
 ## TODO
-- [ ] Build 'dummy' gem (adapt the pattern for rails engines)
+- [x] Build 'dummy' gem (adapt the pattern for rails engines)
 - [ ] Make sure vendor/assets/... exist
 - [ ] Bump version on Gemfile (based on bower's version)
 - [ ] Remove bower_components directory when done

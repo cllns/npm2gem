@@ -1,23 +1,16 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "bower2gem"
 
-spec_tmp_dir = "spec/tmp"
 base_directory = Dir.pwd
+dummy_directory = File.join(base_directory, "spec", "dummy")
 
 RSpec.configure do |config|
   config.before(:all) do
-    Dir.chdir("spec")
-    FileUtils.rm_rf("tmp") # Just in case it didn't get cleaned up
-    Dir.mkdir("tmp")
-    Dir.chdir("tmp")
-    Dir.mkdir("bower_components")
-    FileUtils.cp("../../.bower2gem.yml", ".")
+    Dir.chdir(dummy_directory)
+
+    # Eventually these should be removed, since we'll do it on the fly, in code
+    FileUtils.mkdir_p("bower_components")
     FileUtils.mkdir_p("vendor/assets/javascripts")
     FileUtils.mkdir_p("vendor/assets/stylesheets")
-  end
-
-  config.after(:all) do
-    Dir.chdir(base_directory)
-    FileUtils.rm_rf(spec_tmp_dir)
   end
 end
