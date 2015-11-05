@@ -1,5 +1,4 @@
 require "spec_helper"
-require "bower2gem/bower_install"
 
 describe Bower2Gem::BowerInstall do
   it "install package with bower" do

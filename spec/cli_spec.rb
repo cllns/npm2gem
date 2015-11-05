@@ -1,5 +1,4 @@
 require "spec_helper"
-require "bower2gem/cli"
 
 describe Bower2Gem::CLI do
   before(:each) do

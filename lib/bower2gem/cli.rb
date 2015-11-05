@@ -2,6 +2,7 @@ require "bower2gem/config"
 require "bower2gem/bower_install"
 require "bower2gem/file_copier"
 require "bower2gem/exception"
+require "bower2gem/gem_version_updater"
 require "highline/import"
 
 module Bower2Gem
@@ -20,6 +21,7 @@ module Bower2Gem
         puts "New (bower)\t Version: #{bower_version}"
         if want_to_upgrade?
           @file_copier.copy(@config.file_names)
+          GemVersionUpdater.new.run(bower_version)
           puts "Done! :)"
         else
           puts "Okay, no problem!"
