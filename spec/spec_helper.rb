@@ -13,4 +13,9 @@ RSpec.configure do |config|
     FileUtils.mkdir_p("vendor/assets/javascripts")
     FileUtils.mkdir_p("vendor/assets/stylesheets")
   end
+
+  config.after(:all) do
+    # We clean up in the codebase, but if there's errors it doesn't get that far
+    FileUtils.rm_rf(File.join(dummy_directory, "bower_components"))
+  end
 end
