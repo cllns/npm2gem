@@ -14,7 +14,7 @@ module Bower2Gem
           File.join(@from_base, from_path),
           to_path(from_path)
         )
-        puts "Copyied #{from_path} \t to #{to_path(from_path)}"
+        puts "Copied #{from_path} \t to #{to_path(from_path)}"
       end
     end
 
