@@ -31,7 +31,7 @@ module Bower2Gem
     end
 
     def create_to_directory_if_needed
-      unless Dir.exists?(@to_base)
+      unless Dir.exist?(@to_base)
         FileUtils.mkdir_p(@to_base)
       end
     end

@@ -1,7 +1,7 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'bower2gem/version'
+require "bower2gem/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "bower2gem"
@@ -9,11 +9,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sean Collins"]
   spec.email         = ["sean@cllns.com"]
 
-  spec.summary       = %q{Install assets from bower, for gemified assets.}
+  spec.summary       = "Install assets from bower, for gemified assets."
   spec.homepage      = "https://github.com/cllns/"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files`.split("\n").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]

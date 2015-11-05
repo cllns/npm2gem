@@ -10,7 +10,7 @@ module Bower2Gem
       @package_name = package_name
     end
 
-    def package_path
+    def path
       File.join("bower_components", @package_name)
     end
 
@@ -25,7 +25,7 @@ module Bower2Gem
     end
 
     def package_json_path
-      File.join(package_path, "package.json")
+      File.join(path, "package.json")
     end
   end
 end

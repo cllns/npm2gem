@@ -7,7 +7,8 @@ describe Bower2Gem::GemVersionUpdater do
 
   it "updates version file" do
     @updater.run("9.9.9")
-    new_version_file = File.read(@updater.instance_variable_get(:@version_file_name))
+    version_file_name = @updater.instance_variable_get(:@version_file_name)
+    new_version_file = File.read(version_file_name)
     expect(new_version_file).to match(/9.9.9/)
   end
 

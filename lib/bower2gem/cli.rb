@@ -12,7 +12,7 @@ module Bower2Gem
     def initialize
       @config = Config.new
       @bower_install = BowerInstall.new(@config.package_name)
-      @file_copier = FileCopier.new(@bower_install.package_path, "vendor/assets")
+      @file_copier = FileCopier.new(@bower_install.path, "vendor/assets")
     end
 
     def run
@@ -46,7 +46,7 @@ module Bower2Gem
 
     def gem_version
       gemspec_file_name = Dir["*.gemspec"].first
-      Gem::Specification::load(gemspec_file_name).version.to_s
+      Gem::Specification.load(gemspec_file_name).version.to_s
     end
 
     def bower_version
