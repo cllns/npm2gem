@@ -21,6 +21,7 @@
 - [x] Remove bower_components directory when done
 - [ ] When copying and files exist, confirm with user (possibly read version from
   file itself)
+- [ ] Rely only on bower.json, not package.json (since that's for node)
 - [ ] Add Support for:
   - [ ] Fonts
   - [ ] Sass (and Less?)
