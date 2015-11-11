@@ -1,30 +1,32 @@
+require "bower2gem/version_updaters/version_file_updater"
+require "bower2gem/version_updaters/gemspec_updater"
+
 module Bower2Gem
   class GemVersionUpdater
     def initialize
-      @version_file_name = Dir["**/version.rb"].first
+      @gemspec_file_name = Dir["*.gemspec"].first
     end
 
-    def run(new_version)
-      write_new_version_file(new_version)
-      puts "Updated version in gem to #{new_version}"
+    def run(version)
+      if current_version =~ /VERSION/
+        updater = VersionFileUpdater.new.run(version)
+      else
+        updater = GemspecUpdater.new.run(version)
+      end
     end
 
     private
 
-    def file_contents
-      File.read(@version_file_name)
+    def current_version
+      unless gemspec_version_line.empty?
+        gemspec_version_line.match(/=(.*)/).captures.first
+      end
     end
 
-    def new_file_contents(new_version)
-      file_contents.gsub(
-        /VERSION.*/,
-        %{VERSION = "#{new_version}"}
-      )
-    end
-
-    def write_new_version_file(new_version)
-      new_contents = new_file_contents(new_version)
-      File.open(@version_file_name, "w") { |file| file.puts(new_contents) }
+    def gemspec_version_line
+      File.readlines(@gemspec_file_name).select do |line|
+         line =~ /\.version/
+      end.first
     end
   end
 end
