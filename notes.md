@@ -14,6 +14,7 @@
    for updates (likely manually hardcoded at first)
 
 ## TODO
+- [ ] Support globs in .bower2gem.yml file
 - [ ] Check git tags for version? Or just allow user to enter manually
 - [ ] When copying and files exist, confirm with user (possibly read version from
   file itself)
