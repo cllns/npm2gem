@@ -5,35 +5,43 @@ module Bower2Gem
     def initialize(from_base, to_base)
       @from_base = from_base
       @to_base = to_base
-      create_to_directory_if_needed
     end
 
-    def copy(from_paths)
-      from_paths.each do |from_path|
-        FileUtils.cp(
-          File.join(@from_base, from_path),
-          to_path(from_path)
-        )
-        puts "Copied #{from_path} \t to #{to_path(from_path)}"
+    def copy(input_paths)
+      input_paths.each do |input_path|
+        copy_single(input_path)
+        puts "Copied #{from_path(input_path)} \t to #{to_path(input_path)}"
       end
     end
 
     private
 
-    def to_path(file_name)
-      file_name = file_name.split("/").last
-      if file_name.match("css")
-        file_type_directory = "stylesheets"
-      elsif file_name.match("js")
-        file_type_directory = "javascripts"
-      end
+    def copy_single(input_path)
+      file_name = file_name(input_path)
+      file_type_directory = file_type_directory(file_name)
+
+      FileUtils.mkdir_p(to_path(file_type_directory))
+      FileUtils.cp(from_path(input_path), to_path(file_type_directory, file_name))
+    end
+
+    def from_path(input_path)
+      File.join(@from_base, input_path)
+    end
+
+    def to_path(file_type_directory, file_name = "")
       File.join(@to_base, file_type_directory, file_name)
     end
 
-    def create_to_directory_if_needed
-      unless Dir.exist?(@to_base)
-        FileUtils.mkdir_p(@to_base)
+    def file_type_directory(file_name)
+      if file_name.include?("css")
+        "stylesheets"
+      elsif file_name.include?("js")
+        "javascripts"
       end
+    end
+
+    def file_name(input_path)
+      input_path.split("/").last
     end
   end
 end

@@ -11,7 +11,7 @@ describe Bower2Gem::CLI do
     expect(File).to exist("vendor/assets/javascripts/bootstrap.js")
   end
 
-  it "downloads sylesheet files" do
+  it "downloads stylesheet files" do
     expect(File).to exist("vendor/assets/stylesheets/bootstrap.css")
     expect(File).to exist("vendor/assets/stylesheets/bootstrap-theme.css")
   end
