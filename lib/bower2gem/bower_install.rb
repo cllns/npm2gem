@@ -15,17 +15,15 @@ module Bower2Gem
     end
 
     def package_version
-      parsed_package_json_file["version"]
+      parse_json_file("bower.json")["version"] ||
+      parse_json_file(".bower.json")["version"] ||
+      parse_json_file("package.json")["version"]
     end
 
     private
 
-    def parsed_package_json_file
-      JSON.parse(File.read(package_json_path))
-    end
-
-    def package_json_path
-      File.join(path, "package.json")
+    def parse_json_file(json_file_name)
+      JSON.parse(File.read(File.join(path, json_file_name)))
     end
   end
 end
