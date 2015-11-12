@@ -14,15 +14,9 @@
    for updates (likely manually hardcoded at first)
 
 ## TODO
-- [x] Build 'dummy' gem (adapt the pattern for rails engines)
-- [ ] Make sure vendor/assets/... exist
-- [x] Bump version on Gemfile (based on bower's version)
-- [x] Support version being directly in .gemspec, rather than version file
 - [ ] Check git tags for version? Or just allow user to enter manually
-- [x] Remove bower_components directory when done
 - [ ] When copying and files exist, confirm with user (possibly read version from
   file itself)
-- [x] Rely only on bower.json, not package.json (since that's for node)
 - [ ] Add Support for:
   - [ ] Fonts
   - [ ] Sass (and Less?)
