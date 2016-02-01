@@ -1,6 +1,6 @@
-require "bower2gem/version_updaters/base_file_updater"
+require "npm2gem/version_updaters/base_file_updater"
 
-module Bower2Gem
+module NPM2Gem
   class GemspecUpdater < BaseFileUpdater
     def initialize
       super(

@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in bower2gem.gemspec
+# Specify your gem's dependencies in npm2gem.gemspec
 gemspec

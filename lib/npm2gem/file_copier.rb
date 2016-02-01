@@ -1,6 +1,6 @@
 require "fileutils"
 
-module Bower2Gem
+module NPM2Gem
   class FileCopier
     def initialize(from_base, to_base)
       @from_base = from_base

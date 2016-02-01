@@ -1,37 +1,37 @@
-require "bower2gem/config"
-require "bower2gem/bower_install"
-require "bower2gem/file_copier"
-require "bower2gem/exception"
-require "bower2gem/gem_version_updater"
+require "npm2gem/config"
+require "npm2gem/npm_install"
+require "npm2gem/file_copier"
+require "npm2gem/exception"
+require "npm2gem/gem_version_updater"
 require "highline/import"
 
-module Bower2Gem
+module NPM2Gem
   class CLI
     attr_reader :config
 
     def initialize
       @config = Config.new
-      @bower_install = BowerInstall.new(@config.package_name)
-      @file_copier = FileCopier.new(@bower_install.path, "vendor/assets")
+      @npm_install = NPMInstall.new(@config.package_name)
+      @file_copier = FileCopier.new(@npm_install.path, "vendor/assets")
     end
 
     def run
       if new_version?
         puts "Current (gem)\t Version: #{gem_version}"
-        puts "New (bower)\t Version: #{bower_version}"
+        puts "New (npm)\t Version: #{npm_version}"
         if want_to_upgrade?
           @file_copier.copy(@config.file_names)
-          GemVersionUpdater.new.run(bower_version)
+          GemVersionUpdater.new.run(npm_version)
           puts "Done! :)"
         else
           puts "Okay, no problem!"
         end
       else
         puts "There's no new version of #{@config.package_name} "\
-             "on bower. The current version is #{bower_version}"
+             "on npm. The current version is #{npm_version}"
       end
 
-      FileUtils.rm_rf("bower_components")
+#      FileUtils.rm_rf("node_modules")
     end
 
     private
@@ -41,7 +41,7 @@ module Bower2Gem
     end
 
     def new_version?
-      Gem::Version.new(bower_version) > Gem::Version.new(gem_version)
+      Gem::Version.new(npm_version) > Gem::Version.new(gem_version)
     end
 
     def gem_version
@@ -49,8 +49,8 @@ module Bower2Gem
       Gem::Specification.load(gemspec_file_name).version.to_s
     end
 
-    def bower_version
-      @bower_install.package_version
+    def npm_version
+      @npm_install.package_version
     end
   end
 end

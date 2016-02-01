@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Bower2Gem::GemVersionUpdater do
+describe NPM2Gem::GemVersionUpdater do
   before(:each) do
-    @updater = Bower2Gem::GemVersionUpdater.new
+    @updater = NPM2Gem::GemVersionUpdater.new
   end
 
   it "updates .gemspec file" do

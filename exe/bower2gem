@@ -1,8 +1,0 @@
-#! /usr/bin/env ruby
-require "bower2gem"
-
-if ARGV.length == 0
-  Bower2Gem::CLI.new.run
-else
-  abort "USAGE:\t bower2gem "
-end

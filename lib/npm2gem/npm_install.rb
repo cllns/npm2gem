@@ -1,22 +1,20 @@
 require "json"
 
-module Bower2Gem
-  class BowerInstall
+module NPM2Gem
+  class NPMInstall
     def initialize(package_name)
-      unless system("bower install #{package_name}")
-        raise Bower2Gem::Exception, "Couldn't install..."
+      unless system("npm install #{package_name}")
+        raise NPM2Gem::Exception, "Couldn't install..."
       end
 
       @package_name = package_name
     end
 
     def path
-      File.join("bower_components", @package_name)
+      File.join("node_modules", @package_name)
     end
 
     def package_version
-      parse_json_file("bower.json")["version"] ||
-      parse_json_file(".bower.json")["version"] ||
       parse_json_file("package.json")["version"]
     end
 

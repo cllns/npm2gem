@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Bower2Gem::CLI do
+describe NPM2Gem::CLI do
   before(:each) do
-    @cli = Bower2Gem::CLI.new
+    @cli = NPM2Gem::CLI.new
     allow(@cli).to receive(:want_to_upgrade?) { true }
     @cli.run
   end

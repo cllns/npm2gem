@@ -1,4 +1,4 @@
-module Bower2Gem
+module NPM2Gem
   class Exception < StandardError
   end
 end

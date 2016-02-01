@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Bower2Gem do
+describe NPM2Gem do
   it "has a version number" do
-    expect(Bower2Gem::VERSION).not_to be nil
+    expect(NPM2Gem::VERSION).not_to be nil
   end
 
   it "does something useful" do

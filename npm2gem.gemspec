@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "bower2gem/version"
+require "npm2gem/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "bower2gem"
-  spec.version       = Bower2Gem::VERSION
+  spec.name          = "npm2gem"
+  spec.version       = NPM2Gem::VERSION
   spec.authors       = ["Sean Collins"]
   spec.email         = ["sean@cllns.com"]
 
-  spec.summary       = "Install assets from bower, for gemified assets."
+  spec.summary       = "Install assets from npm, for gemified assets."
   spec.homepage      = "https://github.com/cllns/"
   spec.license       = "MIT"
 

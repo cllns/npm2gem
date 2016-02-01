@@ -1,0 +1,8 @@
+#! /usr/bin/env ruby
+require "npm2gem"
+
+if ARGV.length == 0
+  NPM2Gem::CLI.new.run
+else
+  abort "USAGE:\t npm2gem "
+end

@@ -1,4 +1,4 @@
-module Bower2Gem
+module NPM2Gem
   class BaseFileUpdater
     def initialize(file_name_glob, search_pattern, replace_template)
       @file_name = Dir[file_name_glob].first

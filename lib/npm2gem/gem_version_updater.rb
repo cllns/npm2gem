@@ -1,7 +1,7 @@
-require "bower2gem/version_updaters/version_file_updater"
-require "bower2gem/version_updaters/gemspec_updater"
+require "npm2gem/version_updaters/version_file_updater"
+require "npm2gem/version_updaters/gemspec_updater"
 
-module Bower2Gem
+module NPM2Gem
   class GemVersionUpdater
     def initialize
       @gemspec_file_name = Dir["*.gemspec"].first

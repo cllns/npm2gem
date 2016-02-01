@@ -1,9 +1,9 @@
 require "yaml"
 
-module Bower2Gem
+module NPM2Gem
   class Config
     def initialize
-      @yaml_file = YAML.load_file(".bower2gem.yml")
+      @yaml_file = YAML.load_file(".npm2gem.yml")
     end
 
     # TODO: support more than one?
