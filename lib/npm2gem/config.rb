@@ -11,7 +11,7 @@ module NPM2Gem
       @yaml_file.keys.first
     end
 
-    def file_names
+    def files
       @yaml_file[package_name]
     end
   end

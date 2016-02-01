@@ -21,7 +21,13 @@ module NPM2Gem
       file_type_directory = file_type_directory(file_name)
 
       FileUtils.mkdir_p(to_path(file_type_directory))
-      FileUtils.cp(from_path(input_path), to_path(file_type_directory, file_name))
+
+      Dir.glob(from_path(input_path)).each do |from_path|
+        FileUtils.cp(
+          from_path,
+          to_path(file_type_directory, file_name)
+        )
+      end
     end
 
     def from_path(input_path)

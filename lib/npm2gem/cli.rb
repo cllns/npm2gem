@@ -20,7 +20,7 @@ module NPM2Gem
         puts "Current (gem)\t Version: #{gem_version}"
         puts "New (npm)\t Version: #{npm_version}"
         if want_to_upgrade?
-          @file_copier.copy(@config.file_names)
+          @file_copier.copy(@config.files)
           GemVersionUpdater.new.run(npm_version)
           puts "Done! :)"
         else
