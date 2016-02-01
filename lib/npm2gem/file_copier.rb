@@ -9,24 +9,36 @@ module NPM2Gem
 
     def copy(input_paths)
       input_paths.each do |input_path|
-        copy_single(input_path)
-        puts "Copied #{from_path(input_path)} \t to #{to_path(input_path)}"
+        # TODO: replace with polymorphism, for the love of god
+        if input_path.is_a?(Hash)
+          copy_to_subfolder(input_path)
+        else
+          copy_single(input_path)
+        end
       end
     end
 
     private
 
-    def copy_single(input_path)
-      file_name = file_name(input_path)
-      file_type_directory = file_type_directory(file_name)
+    def copy_to_subfolder(input_hash)
+      input_hash.each do |subfolder, input_paths|
+        input_paths.each do |input_path|
+          copy_single(input_path, subfolder)
+        end
+      end
+    end
 
-      FileUtils.mkdir_p(to_path(file_type_directory))
-
+    def copy_single(input_path, subfolder = "")
       Dir.glob(from_path(input_path)).each do |from_path|
+        file_type_directory = file_type_directory(from_path)
+        FileUtils.mkdir_p(to_path(file_type_directory, subfolder))
+
         FileUtils.cp(
           from_path,
-          to_path(file_type_directory, file_name)
+          to_path(file_type_directory, subfolder)
         )
+        puts "Copied #{from_path} \t"
+        puts " to #{to_path(input_path, subfolder)}"
       end
     end
 
@@ -34,8 +46,8 @@ module NPM2Gem
       File.join(@from_base, input_path)
     end
 
-    def to_path(file_type_directory, file_name = "")
-      File.join(@to_base, file_type_directory, file_name)
+    def to_path(file_type_directory, subfolder = "",file_name = "")
+      File.join(@to_base, file_type_directory, subfolder, file_name)
     end
 
     def file_type_directory(file_name)

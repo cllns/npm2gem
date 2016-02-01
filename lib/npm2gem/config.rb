@@ -11,7 +11,10 @@ module NPM2Gem
       @yaml_file.keys.first
     end
 
-    def files
+    # This is an array, of either:
+    #   - file names, or
+    #   - a hash: { destination_subfolder: files }
+    def files_to_copy
       @yaml_file[package_name]
     end
   end
