@@ -1,8 +1,8 @@
 # npm2gem
 
-npm2gem is a tool to help you build
+npm2gem is a tool to help you maintain
 ['gemified assets'](http://www.prioritized.net/blog/gemify-assets-for-rails/)
-for Rails,
+for Ruby on Rails,
 by automatically pulling assets from NPM.
 
 ## Installation
@@ -11,7 +11,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 group :development do
-  gem 'npm2gem'
+  gem "npm2gem"
 end
 ```
 
@@ -21,12 +21,12 @@ Then run:
 
 ## Usage
 
-`npm2gem` works via an config file, `.npm2gem.yml`.
+`npm2gem` uses a configuration file: `.npm2gem.yml`.
 
 Once that file is set up,
 you just run `npm2gem`
 and it'll automatically download the correct package from `npm`,
-and copy the files you want into your application.
+and copy the files you want into your gem.
 
 It assumes that all files will go into `vendor/assets`,
 with javascript files going into `vendor/assets/javascripts`
@@ -37,13 +37,13 @@ and stylesheet files going into `vendor/assets/stylesheets`.
 
 Here is the specification for the `.npm2gem.yml` file:
 
-```
+```yaml
 bootstrap:
   - dist/css/boostrap.css
   - dist/css/bootstrap-theme.css
   - dist/js/bootstrap.js
 
-```yaml
+```
 
 
 #### Subdirectories
@@ -55,28 +55,29 @@ Note: all `.css` files go into `vendor/assets/stylesheets`
 and all `.js` files go into `vendor/assets/javascripts`,
 this is currently a default that you cannot override.
 
-What you can do though,
-is have subdirectories.
+You can create subdirectories though.
 
 Let's say you wanted to put the `bootstrap-theme.css` file into
 `vendor/assets/stylesheets/themes` instead.
 
 Here's the `.npm2gem.yml` you'd use:
 
-```
+```yaml
 bootstrap:
   - dist/css/boostrap.css
   - dist/js/bootstrap.js
   - themes:
     - dist/css/bootstrap-theme.css
 
-```yaml
+```
 
 ## TODO:
 
 - [ ] Support SCSS, Coffee, etc.
 - [ ] Add support for fonts?
-- [ ] Add tests to ensure you can group JS and CSS files together in `.npm2gem.yml`
+- [ ] Add tests for:
+  - [ ] ensuring you can group JS and CSS files together in `.npm2gem.yml`
+  - [ ] ensuring subdirectories can be nested
 
 ## Future work
 Eventually, I'd like there to be a service that uses this gem to
@@ -93,8 +94,7 @@ https://github.com/cllns/npm2gem.
 This project is intended to be a safe,
 welcoming space for collaboration,
 and contributors are expected to adhere to the
-[Contributor Covenant](contributor-covenant.org)
-code of conduct.
+[code of conduct](code_of_conduct.md).
 
 ## License
 
