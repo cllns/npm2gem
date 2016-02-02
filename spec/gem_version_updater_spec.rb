@@ -43,10 +43,4 @@ end
 }
     )
   end
-
-  it "outputs new version" do
-    @updater = NPM2Gem::GemVersionUpdater.new
-    @updater.run("9.9.9")
-    expect { @updater.run("9.9.9") }.to output(/9.9.9/).to_stdout
-  end
 end

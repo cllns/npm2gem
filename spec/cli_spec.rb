@@ -15,4 +15,8 @@ describe NPM2Gem::CLI do
     expect(File).to exist("vendor/assets/stylesheets/bootstrap.css")
     expect(File).to exist("vendor/assets/stylesheets/bootstrap-theme.css")
   end
+
+  it "outputs new version" do
+    expect { @cli.run }.to output(/\d\.\d\.\d/).to_stdout
+  end
 end

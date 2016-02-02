@@ -38,7 +38,7 @@ module NPM2Gem
           to_path(file_type_directory, subfolder)
         )
         puts "Copied #{from_path} \t"
-        puts " to #{to_path(input_path, subfolder)}"
+        puts "    to #{to_path(input_path, subfolder)}"
       end
     end
 

@@ -21,8 +21,8 @@ module NPM2Gem
         puts "New (npm)\t Version: #{npm_version}"
         if want_to_upgrade?
           @file_copier.copy(@config.files_to_copy)
-          GemVersionUpdater.new.run(npm_version)
-          puts "Done! :)"
+          version = GemVersionUpdater.new.run(npm_version)
+          puts "Done! :) Upgraded to #{version}"
         else
           puts "Okay, no problem!"
         end
@@ -37,7 +37,7 @@ module NPM2Gem
     private
 
     def want_to_upgrade?
-      agree("Do you want to upgrade? [yes/no]", true)
+      agree("Do you want to upgrade? [y/n]", true)
     end
 
     def new_version?
