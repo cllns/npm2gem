@@ -7,19 +7,29 @@ module NPM2Gem
       @gemspec_file_name = Dir["*.gemspec"].first
     end
 
-    def run(version)
-      if current_version =~ /VERSION/
-        updater = VersionFileUpdater.new.run(version)
+    def run(new_version)
+      if gemspec_version =~ /VERSION/
+        VersionFileUpdater.new(file_path).run(new_version)
       else
-        updater = GemspecUpdater.new.run(version)
+        GemspecUpdater.new(file_path, gemspec_version).run(new_version)
       end
     end
 
     private
 
-    def current_version
+    def file_path
+      if gemspec_version =~ /VERSION/
+        Dir["**/version.rb"].first
+      else
+        @gemspec_file_name
+      end
+    end
+
+    def gemspec_version
       unless gemspec_version_line.empty?
-        gemspec_version_line.match(/=(.*)/).captures.first
+        gemspec_version_line.match(
+          /=\s*(.*VERSION.*)\s*|["'](.*)["']/
+        ).captures.compact.first
       end
     end
 
