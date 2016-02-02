@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe NPM2Gem::GemVersionUpdater do
-
   after(:each) do
     `git co -- .`
   end
@@ -38,7 +37,7 @@ describe NPM2Gem::GemVersionUpdater do
     new_version_file = File.read(Dir["**/version.rb"].first)
     expect(new_version_file).to eq(
       %{module Dummy
-  VERSION = "9.9.9"
+  VERSION = "9.9.9".freeze
 end
 }
     )

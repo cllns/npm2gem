@@ -31,7 +31,7 @@ module NPM2Gem
              "on npm. The current version is #{npm_version}"
       end
 
-#      FileUtils.rm_rf("node_modules")
+      #      FileUtils.rm_rf("node_modules")
     end
 
     private

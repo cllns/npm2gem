@@ -34,9 +34,9 @@ module NPM2Gem
     end
 
     def gemspec_version_line
-      File.readlines(@gemspec_file_name).select do |line|
-         line =~ /\.version/
-      end.first
+      File.readlines(@gemspec_file_name).detect do |line|
+        line =~ /\.version/
+      end
     end
   end
 end

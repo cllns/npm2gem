@@ -46,7 +46,7 @@ module NPM2Gem
       File.join(@from_base, input_path)
     end
 
-    def to_path(file_type_directory, subfolder = "",file_name = "")
+    def to_path(file_type_directory, subfolder = "", file_name = "")
       File.join(@to_base, file_type_directory, subfolder, file_name)
     end
 

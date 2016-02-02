@@ -20,13 +20,13 @@ describe NPM2Gem::FileCopier do
   end
 
   it "copies files, specifically listed" do
-    subject.copy([ "js/locale/en.js", "js/locale/es.js"])
+    subject.copy(["js/locale/en.js", "js/locale/es.js"])
     expect(File).to exist("tmp-dest/vendor/assets/javascripts/en.js")
     expect(File).to exist("tmp-dest/vendor/assets/javascripts/es.js")
   end
 
   it "copies files, which are globbed" do
-    subject.copy([ "js/locale/*.js"])
+    subject.copy(["js/locale/*.js"])
     expect(File).to exist("tmp-dest/vendor/assets/javascripts/en.js")
     expect(File).to exist("tmp-dest/vendor/assets/javascripts/es.js")
   end
@@ -35,7 +35,7 @@ describe NPM2Gem::FileCopier do
     subject.copy([
       "main.js",
       {
-        "locales" => [ "js/locale/*.js" ]
+        "locales" => ["js/locale/*.js"]
       }
     ])
     expect(Dir).to exist("tmp-dest/vendor/assets/javascripts/locales/")

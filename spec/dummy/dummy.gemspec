@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   # rubygems.org
   spec.metadata["allowed_push_host"] = nil
 
-  spec.files         = `git ls-files`.split("\n").reject do |f|
+  spec.files = `git ls-files`.split("\n").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "exe"

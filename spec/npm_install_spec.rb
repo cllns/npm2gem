@@ -14,8 +14,8 @@ describe NPM2Gem::NPMInstall do
   end
 
   it "parse version from package.json" do
-    allow(subject).to receive( :parse_json_file).with("package.json").
-                                                  and_return( @version_hash)
+    allow(subject).to receive(:parse_json_file).with("package.json").
+      and_return(@version_hash)
 
     expect(subject.package_version).not_to be_nil
   end

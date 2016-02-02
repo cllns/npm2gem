@@ -31,7 +31,9 @@ describe NPM2Gem::Config do
       "dist/css/bootstrap.css",
       "dist/js/bootstrap.js",
       {
-        "theme" => ["dist/css/bootstrap-theme.css"]
+        "theme" => [
+          "dist/css/bootstrap-theme.css"
+        ]
       }
     ])
   end

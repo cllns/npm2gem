@@ -19,7 +19,7 @@ RSpec.configure do |config|
 
   config.after(:all) do
     # We clean up in the codebase, but if there's errors it doesn't get that far
-    #FileUtils.rm_rf(File.join(dummy_directory, "node_modules"))
+    # FileUtils.rm_rf(File.join(dummy_directory, "node_modules"))
     # Restore the dummy app, since we change the files in it
     `git checkout -- #{dummy_directory}`
   end
