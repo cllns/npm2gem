@@ -89,7 +89,10 @@ to see if they want to update their gem.
 
 ## Development
 
-Bug reports, support requests and pull requests are welcome on GitHub at
+Bug reports,
+feature requests,
+support queries,
+and pull requests are welcome on GitHub at
 https://github.com/cllns/npm2gem.
 This project is intended to be a safe,
 welcoming space for collaboration,
