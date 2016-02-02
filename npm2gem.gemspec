@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sean Collins"]
   spec.email         = ["sean@cllns.com"]
 
-  spec.summary       = "A tool to help mainain Asset gems for Ruby on Rails"
+  spec.summary       = "A tool to help maintain Asset gems for Ruby on Rails"
   spec.homepage      = "https://github.com/cllns/npm2gem"
   spec.license       = "MIT"
 
