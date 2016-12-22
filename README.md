@@ -1,7 +1,7 @@
 # npm2gem
 
 npm2gem is a tool to help you maintain
-['gemified assets'](http://www.prioritized.net/blog/gemify-assets-for-rails/)
+['gemified assets'](http://www.prioritized.net/blog/gemify-assets-for-rails)
 for Ruby on Rails,
 by automatically pulling assets from NPM.
 
